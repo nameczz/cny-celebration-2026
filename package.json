@@ -1,0 +1,13 @@
+{
+  "name": "cny-celebration-2026",
+  "version": "1.0.0",
+  "description": "2026马年新春庆祝页面 - Chinese New Year 2026 Celebration",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000"
+  },
+  "keywords": ["chinese-new-year", "celebration", "2026", "year-of-horse"],
+  "author": "",
+  "license": "MIT"
+}
