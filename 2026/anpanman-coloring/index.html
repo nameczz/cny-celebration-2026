@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>面包超人填色</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 顶部：角色选择条 -->
+        <div class="top-bar">
+            <div id="char-strip" class="char-strip"></div>
+        </div>
+
+        <!-- 主体：画布 + 调色板 -->
+        <div class="main-area">
+            <div class="canvas-area">
+                <svg id="coloring-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+            <div class="toolbar">
+                <div id="palette" class="palette"></div>
+                <div class="tool-divider"></div>
+                <button id="eraser-btn" class="tool-btn" aria-label="橡皮擦">🧹</button>
+                <button id="undo-btn" class="tool-btn" aria-label="撤销">↩</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 庆祝弹窗 -->
+    <div id="celebration" class="celebration hidden">
+        <div class="celebration-content">
+            <div class="celebration-emoji">🎉</div>
+            <p class="celebration-text">太棒了！</p>
+            <button id="replay-btn" class="tool-btn replay-btn">再画一次</button>
+        </div>
+    </div>
+
+    <script src="characters/anpanman.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

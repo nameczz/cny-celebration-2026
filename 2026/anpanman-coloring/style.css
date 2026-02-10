@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #fafafa;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    touch-action: manipulation;
+}
+
+.hidden { display: none !important; }
+
+/* ===== 强制横屏 ===== */
+#app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+@media (orientation: portrait) {
+    #app {
+        transform-origin: top left;
+        transform: rotate(90deg) translateY(-100%);
+        width: 100vh;
+        height: 100vw;
+    }
+}
+
+/* ===== 顶部角色选择条 ===== */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.char-strip {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.char-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    background: #fafafa;
+    cursor: pointer;
+    padding: 4px;
+    transition: border-color 0.15s, transform 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.char-thumb:active {
+    transform: scale(0.9);
+}
+
+.char-thumb.selected {
+    border-color: #E74C3C;
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(231, 76, 60, 0.25);
+}
+
+.char-thumb svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== 主体区域 ===== */
+.main-area {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+/* ===== 画布区域 ===== */
+.canvas-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    min-width: 0;
+}
+
+#coloring-svg {
+    width: 100%;
+    height: 100%;
+}
+
+#coloring-svg [data-id] {
+    cursor: pointer;
+    pointer-events: all;
+    transition: fill 0.15s;
+}
+
+#coloring-svg .outline {
+    pointer-events: none;
+    fill: none;
+    stroke: #1a1a1a;
+    stroke-width: 4.5;
+}
+
+/* ===== 工具栏（右侧） ===== */
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 8px;
+    background: #fff;
+    border-left: 1px solid #eee;
+    overflow-y: auto;
+    width: 62px;
+    flex-shrink: 0;
+}
+
+.tool-divider {
+    width: 32px;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 2px 0;
+}
+
+/* ===== 调色板 ===== */
+.palette {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    padding: 0;
+}
+
+.color-btn:active {
+    transform: scale(0.9);
+}
+
+.color-btn.selected {
+    border-color: #333;
+    transform: scale(1.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== 工具按钮 ===== */
+.tool-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    background: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, transform 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    padding: 0;
+}
+
+.tool-btn:active {
+    background: #f0f0f0;
+    transform: scale(0.9);
+}
+
+.tool-btn.active {
+    background: #e8f4fd;
+    border-color: #5DADE2;
+    box-shadow: 0 2px 6px rgba(93, 173, 226, 0.3);
+}
+
+/* ===== 庆祝 ===== */
+.celebration {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.celebration-content {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px 48px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.celebration-emoji {
+    font-size: 64px;
+    animation: bounce 0.6s ease infinite alternate;
+}
+
+.celebration-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.replay-btn {
+    width: auto;
+    padding: 0 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-12px); }
+}
+
+@media (orientation: portrait) {
+    .celebration {
+        transform-origin: top left;
+        transform: rotate(90deg) translateY(-100%);
+        width: 100vh;
+        height: 100vw;
+    }
+}
