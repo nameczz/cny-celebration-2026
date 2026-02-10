@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npx serve .",
     "dev": "npx live-server --port=3000",
-    "build": "for dir in */*/; do [ -f \"$dir/package.json\" ] && (cd \"$dir\" && npm install && npm run build) || true; done"
+    "build": "echo 'Static site, no build needed'"
   },
   "keywords": ["celebration", "chinese-new-year"],
   "author": "",

@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "outputDirectory": ".",
   "routes": [
     { "src": "/(\\d{4})/([^/]+)/?$", "dest": "/$1/$2/index.html" }
   ]
