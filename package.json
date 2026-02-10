@@ -1,13 +1,13 @@
 {
-  "name": "cny-celebration-2026",
+  "name": "celebration-hub",
   "version": "1.0.0",
-  "description": "2026马年新春庆祝页面 - Chinese New Year 2026 Celebration",
-  "main": "index.html",
+  "description": "节日庆祝项目集合",
   "scripts": {
     "start": "npx serve .",
-    "dev": "npx live-server --port=3000"
+    "dev": "npx live-server --port=3000",
+    "build": "for dir in */*/; do [ -f \"$dir/package.json\" ] && (cd \"$dir\" && npm install && npm run build) || true; done"
   },
-  "keywords": ["chinese-new-year", "celebration", "2026", "year-of-horse"],
+  "keywords": ["celebration", "chinese-new-year"],
   "author": "",
   "license": "MIT"
 }
